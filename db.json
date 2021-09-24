@@ -35,13 +35,13 @@
             "Dromle",
             "Elsa",
             "Bram",
-            " Peter Saar Gwynleve",
+            "Peter Saar Gwynleve",
             "Mislav",
             "Tomira",
-            "Yennerfer of Vengerberg"
+            "Yennefer of Vengerberg"
         ],
         "location": [
-            "White Orchard inn",
+            "White Orchard Inn",
             "Nilfgaardian Garrison"
         ],
         "isLiked": true
@@ -55,12 +55,12 @@
         "characters": [
             "Geralt of Rivia",
             "Vesemir",
-            " Peter Saar Gwynleve",
+            "Peter Saar Gwynleve",
             "Mislav",
             "Tomira"
         ],
         "location": [
-            "White Orchard inn",
+            "White Orchard Inn",
             "Nilfgaardian Garrison"
         ],
         "isLiked": true
@@ -75,10 +75,10 @@
             "Geralt of Rivia",
             "Vesemir",
             "Elsa",
-            "Yennerfer of Vengerberg"
+            "Yennefer of Vengerberg"
         ],
         "location": [
-            "White Orchard inn"
+            "White Orchard Inn"
         ],
         "isLiked": false
     },
@@ -91,7 +91,7 @@
         "characters": [
             "Geralt of Rivia",
             "Vesemir",
-            "Yennerfer of Vengerberg",
+            "Yennefer of Vengerberg",
             "Mererid",
             "Cledwyn",
             "Morvran Voorhis",
@@ -465,10 +465,10 @@
         "characters": [
             "Geralt of Rivia",
             "Triss Merigold",
-            " Sigismund Dijkstra",
+            "Sigismund Dijkstra",
             "Bart",
             "Caleb Menge",
-            " Priscilla"
+            "Priscilla"
         ],
         "location": [
             "Novìgrad sewers",
@@ -890,7 +890,7 @@
         "characters": [
             "Geralt of Rivia",
             "Ciri",
-            "Yennerfer of Vengerberg",
+            "Yennefer of Vengerberg",
             "Triss Merigold",
             "Vesemir",
             "Eskel",
@@ -954,7 +954,7 @@
             "Geralt of Rivia",
             "Ciri",
             "Thecla",
-            " Johnny",
+            "Johnny",
             "Marica",
             "Fugas",
             "Imlerith",
@@ -1080,7 +1080,7 @@
             "Avallac'h",
             "Fringilla Vigo",
             "Triss Merigold",
-            "Yennerfer of Vengerberg",
+            "Yennefer of Vengerberg",
             "Philippa Eilhart",
             "Ciri"
         ],
@@ -1216,7 +1216,7 @@
             "Yennefer of Vengerberg",
             "Triss Merigold",
             "Zoltan Chivay",
-            " Emhyr var Emreis",
+            "Emhyr var Emreis",
             "Dandelion",
             "Weavess",
             "Berem",
@@ -1226,7 +1226,7 @@
         "location": [
             "Royal Palace in Vizima",
             "Nilfgaardian Garrison",
-            "White Orchard inn",
+            "White Orchard Inn",
             "White Orchard",
             "Woesong Bridge",
             "Broken Bridge",
@@ -3616,7 +3616,7 @@
         "characters": [
             "Geralt of Rivia",
             "Crach an Craite",
-            " Donar an Hindar",
+            "Donar an Hindar",
             "Cerys an Craite",
             "Hjalmar an Craite",
             "Madman Lugos"
@@ -3825,7 +3825,7 @@
         "level": 19,
         "characters": [
             "Geralt of Rivia",
-            " Jutta an Dimun",
+            "Jutta an Dimun",
             "Einar (Harviken)"
         ],
         "location": [
@@ -4733,7 +4733,7 @@
         "characters": [
             "Geralt of Rivia",
             "Adrien de Rouleau",
-            " Jean-Louis Ludovic",
+            "Jean-Louis Ludovic",
             "Beau Duvall"
         ],
         "location": [

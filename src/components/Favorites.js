@@ -1,20 +1,17 @@
 import React from 'react';
-import FavoriteCard from './FavoriteCard';
+import QuestCard from './QuestCard';
 import { Container } from 'react-bootstrap';
 
 const Favorites = ({quests}) => {
 
-    const favoriteQuests = quests.map(quest => <FavoriteCard quest={quest} />)
+    const favoriteQuests = quests.map(quest => <QuestCard key={quest.id} quest={quest} />)
 
 
     return (
-        <div>
-            <h1>Favorite Quests</h1>
             <Container >
+                <h1>Favorite Quests</h1>
                 {favoriteQuests}
             </Container>
-            
-        </div>
     );
 }
 

@@ -11,16 +11,7 @@ function App() {
 
   const [quests, setQuests] = useState([])
   const [selectedQuest, setSelectedQuest] = useState(null)
-
-  const formatCharacters = (quest) => {
-    const formattedObj = Object.assign({}, quest)
-    const charactersArr = formattedObj.characters.split(', ')
-    formattedObj.characters = charactersArr
-    const locationArr = formattedObj.location.split(', ')
-    formattedObj.location = locationArr
-    formattedObj.level = parseInt(formattedObj.level)
-    return formattedObj
-  }
+  const [sort, setSort] = useState('all')
 
   useEffect(() => {
     fetch('http://localhost:3004/quests')
@@ -32,17 +23,40 @@ function App() {
     setSelectedQuest(quest)
   }
 
-  console.log(quests)
+  const onDropDownChange = (key) => {
+    setSort(key)
+  }
 
+  let displayedQuests
+  if (sort === 'all') {
+    displayedQuests = [...quests]
+  } else if (sort === 'level') {
+    displayedQuests = [...quests].sort(function(a,b) {
+      return a[sort] - b[sort];
+    })
+  }else{
+    displayedQuests = [...quests].sort(function(a, b) {
+      const nameA = a[sort].toUpperCase()
+      const nameB = b[sort].toUpperCase()
+      if(nameA < nameB) {
+        return -1
+      }
+      if(nameA > nameB) {
+        return 1
+      }
+      return 0;
+    });
+  }
+  
   return (
     <div>
-      <NavBar />
+      <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/favorites'>
           <Favorites quests={quests.filter(quest => quest.isLiked)} />
         </Route>
         <Route exact path='/'>
-          <Home selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={quests}/>
+          <Home selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={displayedQuests}/>
         </Route>
       </Switch>
       
