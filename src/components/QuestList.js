@@ -20,8 +20,19 @@ const QuestList = ({onFavoriteClick, onQuestClick, quests}) => {
     }
 
     const renderQuests = quests.map(quest => {
-        const formattedLocations = quest.location.slice(0, -1).join(', ') + ', and ' + quest.location.slice(-1)
-        const formattedCharacters = quest.characters.slice(0, -1).join(', ') + ', and ' + quest.characters.slice(-1)
+        const formatCharOrLocArrays = (array) => {
+            if(array.length === 1) {
+              return array
+            }else if(array.length === 2){
+              return `${array[0]} and ${array[1]}`
+            }else{
+              return array.slice(0, -1).join(', ') + ' and ' + array.slice(-1)
+            }
+          }
+        
+          const characters = formatCharOrLocArrays(quest.characters)
+          const locations = formatCharOrLocArrays(quest.location)
+
         const handleFavoriteButtonClick = (e) => {
             if(quest.isLiked === false) {
                 onFavoriteClick(quest.id, {isLiked: true})
@@ -40,10 +51,10 @@ const QuestList = ({onFavoriteClick, onQuestClick, quests}) => {
             >
                 <Accordion.Header>{quest.name}</Accordion.Header>
                 <Accordion.Body>
-                    {quest.name} is a Level {quest.level} quest that takes place in {formattedLocations} in the {quest.region} region. 
+                    {quest.name} is a Level {quest.level} quest that takes place in {locations} in the {quest.region} region. 
                     <br></br>
                     <br></br>
-                    The characters in this quest include {formattedCharacters}.
+                    The characters in this quest include {characters}.
                     <br></br>
                     <br></br>
                     {quest.isLiked ? 

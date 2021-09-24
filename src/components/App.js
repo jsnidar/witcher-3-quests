@@ -19,6 +19,7 @@ function App() {
     .then(quests => setQuests(quests))
   }, [])
   
+
   const onQuestClick = (quest) => {
     setSelectedQuest(quest)
   }
@@ -74,10 +75,10 @@ function App() {
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/favorites'>
-          <Favorites onFavoriteClick={onFavoriteClick} quests={quests.filter(quest => quest.isLiked)} />
+          <Favorites sort={sort} onFavoriteClick={onFavoriteClick} quests={displayedQuests.filter(quest => quest.isLiked)} />
         </Route>
         <Route exact path='/'>
-          <Home onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={displayedQuests}/>
+          <Home sort={sort} onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={displayedQuests}/>
         </Route>
       </Switch>
       

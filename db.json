@@ -63,7 +63,7 @@
         "White Orchard Inn",
         "Nilfgaardian Garrison"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 4,
@@ -80,7 +80,7 @@
       "location": [
         "White Orchard Inn"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 5,
@@ -101,7 +101,7 @@
       "location": [
         "Royal Palace in Vizima"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 6,
@@ -138,7 +138,7 @@
       "location": [
         "Heatherton"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 8,
@@ -172,7 +172,7 @@
       "location": [
         "Southeast of Lindenvale"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 10,

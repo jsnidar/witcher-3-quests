@@ -2,7 +2,7 @@ import React from 'react';
 import QuestCard from './QuestCard';
 import { Container } from 'react-bootstrap';
 
-const Favorites = ({quests, onFavoriteClick}) => {
+const Favorites = ({quests, sort, onFavoriteClick}) => {
 
     const favoriteQuests = quests.map(quest => <QuestCard onFavoriteClick={onFavoriteClick} key={quest.id} quest={quest} />)
 
@@ -10,6 +10,7 @@ const Favorites = ({quests, onFavoriteClick}) => {
     return (
             <Container >
                 <h1>Favorite Quests</h1>
+                {sort !== 'all' ? <h5>Quests are currently sorted by {sort}.</h5>: null } 
                 {favoriteQuests}
             </Container>
     );
