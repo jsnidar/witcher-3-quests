@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import QuestList from './QuestList';
-import QuestDetails from './QuestDetails';
 
 const Home = ({onFavoriteClick, selectedQuest, onQuestClick, quests}) => {
 
@@ -14,13 +13,7 @@ const Home = ({onFavoriteClick, selectedQuest, onQuestClick, quests}) => {
                 <br></br>
             </Row>
             <Row>
-                <Col>
-                    <QuestList onQuestClick={onQuestClick} quests={quests} />
-                </Col>
-                <Col>
-                    {selectedQuest ? <QuestDetails onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} /> : null}
-                </Col>
-                
+                <QuestList onFavoriteClick={onFavoriteClick} onQuestClick={onQuestClick} quests={quests} />
             </Row>
             
         </Container>
