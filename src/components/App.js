@@ -27,6 +27,27 @@ function App() {
     setSort(key)
   }
 
+  const onFavoriteClick = (id, favsKeyUpdateObj) => {
+    fetch(`http://localhost:3004/quests/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(favsKeyUpdateObj)
+    })
+    .then(r => r.json())
+    .then(updatedQuest => {
+      setSelectedQuest(updatedQuest)
+      setQuests(quests.map(quest => {
+        if(quest.id === updatedQuest.id) {
+          return updatedQuest
+        }else{
+          return quest
+        }
+      }))
+    })
+  }
+
   let displayedQuests
   if (sort === 'all') {
     displayedQuests = [...quests]
@@ -53,10 +74,10 @@ function App() {
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/favorites'>
-          <Favorites quests={quests.filter(quest => quest.isLiked)} />
+          <Favorites onFavoriteClick={onFavoriteClick} quests={quests.filter(quest => quest.isLiked)} />
         </Route>
         <Route exact path='/'>
-          <Home selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={displayedQuests}/>
+          <Home onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={displayedQuests}/>
         </Route>
       </Switch>
       

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import QuestCard from './QuestCard';
 
-const QuestDetails = ({selectedQuest}) => {
+const QuestDetails = ({selectedQuest, onFavoriteClick}) => {
     const [characters, setCharacters] = useState([])
 
     useEffect(()=> {
@@ -15,7 +15,7 @@ const QuestDetails = ({selectedQuest}) => {
     console.log(selectedQuest)
 
     return (
-        <QuestCard quest={selectedQuest} />
+        <QuestCard onFavoriteClick={onFavoriteClick} quest={selectedQuest} />
     );
 }
 

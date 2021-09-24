@@ -1,10 +1,18 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 
-const QuestCard = ({quest}) => {
+const QuestCard = ({quest, onFavoriteClick}) => {
     const formattedLocations = quest.location.slice(0, -1).join(', ') + ', and ' + quest.location.slice(-1)
     const formattedCharacters = quest.characters.slice(0, -1).join(', ') + ', and ' + quest.characters.slice(-1)
 
+    const handleFavoriteButtonClick = (e) => {
+        if(quest.isLiked === false) {
+            onFavoriteClick(quest.id, {isLiked: true})
+        }else{
+            onFavoriteClick(quest.id, {isLiked: false})
+        }
+    }
+    
     return (
         <>
             <Card>
@@ -17,7 +25,7 @@ const QuestCard = ({quest}) => {
                     <br></br>
                     The characters in this quest include {formattedCharacters}.
                     </Card.Text>
-                    <Button variant="secondary">Unfavorite Quest</Button>
+                    {quest.isLiked ? <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
                 </Card.Body>
             </Card>
         </>

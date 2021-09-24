@@ -3,7 +3,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import QuestList from './QuestList';
 import QuestDetails from './QuestDetails';
 
-const Home = ({selectedQuest, onQuestClick, quests}) => {
+const Home = ({onFavoriteClick, selectedQuest, onQuestClick, quests}) => {
 
     return (
         <Container>
@@ -18,7 +18,7 @@ const Home = ({selectedQuest, onQuestClick, quests}) => {
                     <QuestList onQuestClick={onQuestClick} quests={quests} />
                 </Col>
                 <Col>
-                    {selectedQuest ? <QuestDetails selectedQuest={selectedQuest} /> : null}
+                    {selectedQuest ? <QuestDetails onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} /> : null}
                 </Col>
                 
             </Row>
