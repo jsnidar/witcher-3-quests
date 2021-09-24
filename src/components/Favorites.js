@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoriteCard from './FavoriteCard';
-import { Row, Col, Header, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const Favorites = ({quests}) => {
 

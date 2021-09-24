@@ -1,12 +1,13 @@
 import React from 'react';
 import {ListGroup} from 'react-bootstrap';
 
-const QuestList = ({quests}) => {
+const QuestList = ({onQuestClick, quests}) => {
     const handleQuestClick = (event) => {
-        //this is the name of the quest that was clicked
-        console.log(event.target.innerText)
-        //I need to decide if I want Quest Details to render a new page or to render a component on the page like in the last app.
+        const questName = event.target.innerText
+        const selectedQuest = quests.find(quest => quest.name === questName)
+        onQuestClick(selectedQuest)
     }
+    
     const hoverBackgroundColor = (e) => {
         e.target.style.background = '#4e636c'
         e.target.style.color = 'white'
