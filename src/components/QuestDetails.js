@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestDetails = () => {
+const QuestDetails = ({quest}) => {
 
     return (
         <div>

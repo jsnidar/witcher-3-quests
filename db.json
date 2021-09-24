@@ -8,7 +8,7 @@
         "level": "1",
         "characters": "Geralt of Rivia, Yennefer of Vengerberg, Ciri, Vesemir, Lambert, Eskel, Eredin Bréacc Glas",
         "location": "Kaer Morhen",
-        "isLiked": false
+        "isLiked": true
     },
     {
         "id": 2,
@@ -18,7 +18,7 @@
         "level": "1",
         "characters": "Geralt of Rivia, Vesemir, Gaunter O'Dimm, Aldert Geert, Mikah, Dromle, Elsa, Bram,  Peter Saar Gwynleve, Mislav, Tomira, Yennerfer of Vengerberg",
         "location": "White Orchard inn, Nilfgaardian Garrison",
-        "isLiked": false
+        "isLiked": true
     },
     {
         "id": 3,
@@ -28,7 +28,7 @@
         "level": "3",
         "characters": "Geralt of Rivia, Vesemir,  Peter Saar Gwynleve, Mislav, Tomira",
         "location": "White Orchard inn, Nilfgaardian Garrison",
-        "isLiked": false
+        "isLiked": true
     },
     {
         "id": 4,
