@@ -59,9 +59,7 @@ const QuestList = ({onDetailsClick, onFavoriteClick, quests}) => {
                         <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : 
                         <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
                     <Button onClick={handleDetailsClick} variant="secondary">See Full Details</Button>
-
                 </Accordion.Body>
-                
             </Accordion.Item> 
         )
     })

@@ -30,10 +30,18 @@ const QuestCard = ({quest, onFavoriteClick}) => {
                 <Card.Body>
                     <Card.Title>{quest.type}</Card.Title>
                     <Card.Text>
-                    {quest.name} is a <strong>Level {quest.level}</strong> quest that takes place in <em>{locations}</em> in the <em>{quest.region}</em> region. 
+                    Level: {quest.level}
                     <br></br>
+                    Region: {quest.region}
                     <br></br>
-                    The characters in this quest include <strong>{characters}</strong>.
+                    Location(s): {locations} 
+                    <br></br>
+                    Characters: {characters}
+                    {/* format this into thumbnails for each character with their information */}
+                    <br></br>
+                    Creatures:
+                    {/* format this into thumbnails for each creature with their information */}
+                    <br></br>
                     </Card.Text>
                     {quest.isLiked ? <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
                 </Card.Body>
