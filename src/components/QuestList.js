@@ -1,13 +1,7 @@
 import React from 'react';
 import {Accordion, Button} from 'react-bootstrap';
 
-const QuestList = ({onFavoriteClick, onQuestClick, quests}) => {
-
-    const handleQuestClick = (event) => {
-        const questName = event.target.innerText
-        const selectedQuest = quests.find(quest => quest.name === questName)
-        onQuestClick(selectedQuest)
-    }
+const QuestList = ({onDetailsClick, onFavoriteClick, quests}) => {
     
     const hoverBackgroundColor = (e) => {
         e.target.style.background = '#4e636c'
@@ -20,6 +14,7 @@ const QuestList = ({onFavoriteClick, onQuestClick, quests}) => {
     }
 
     const renderQuests = quests.map(quest => {
+
         const formatCharOrLocArrays = (array) => {
             if(array.length === 1) {
               return array
@@ -41,13 +36,16 @@ const QuestList = ({onFavoriteClick, onQuestClick, quests}) => {
             }
         }
 
+        const handleDetailsClick = (e) => {
+            onDetailsClick(quest)
+        }
+
         return(
             <Accordion.Item
                 key={quest.id}
                 eventKey={quest.id} 
                 onMouseOver={hoverBackgroundColor} 
                 onMouseLeave={onMouseLeave} 
-                onClick={handleQuestClick}
             >
                 <Accordion.Header>{quest.name}</Accordion.Header>
                 <Accordion.Body>
@@ -60,13 +58,14 @@ const QuestList = ({onFavoriteClick, onQuestClick, quests}) => {
                     {quest.isLiked ? 
                         <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : 
                         <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
+                    <Button onClick={handleDetailsClick} variant="secondary">See Full Details</Button>
+
                 </Accordion.Body>
                 
             </Accordion.Item> 
         )
     })
-            
-            
+                
     return (
         <div style={{height: '75vh', overflow: 'scroll'}}>
             <Accordion defaultActiveKey='0'>

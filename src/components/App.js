@@ -18,11 +18,6 @@ function App() {
     .then(r => r.json())
     .then(quests => setQuests(quests))
   }, [])
-  
-
-  const onQuestClick = (quest) => {
-    setSelectedQuest(quest)
-  }
 
   const onDropDownChange = (key) => {
     setSort(key)
@@ -48,6 +43,10 @@ function App() {
       }))
     })
   }
+
+  const onDetailsClick = (quest) => {
+    setSelectedQuest(quest)
+}
 
   let displayedQuests
   if (sort === 'all') {
@@ -78,7 +77,7 @@ function App() {
           <Favorites sort={sort} onFavoriteClick={onFavoriteClick} quests={displayedQuests.filter(quest => quest.isLiked)} />
         </Route>
         <Route exact path='/'>
-          <Home sort={sort} onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onQuestClick={onQuestClick} quests={displayedQuests}/>
+          <Home sort={sort} onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onDetailsClick={onDetailsClick} quests={displayedQuests}/>
         </Route>
       </Switch>
       

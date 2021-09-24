@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import {useParams} from 'react-router-dom';
 import QuestCard from './QuestCard';
 
 const QuestDetails = ({selectedQuest, onFavoriteClick}) => {
     const [characters, setCharacters] = useState([])
+    const params = useParams();
+    console.log(params)
 
     useEffect(()=> {
         fetch('http://witcher3api.com/api/characters')
@@ -11,11 +14,10 @@ const QuestDetails = ({selectedQuest, onFavoriteClick}) => {
     }, [])
 
     const filteredCharacters = characters.filter(character => selectedQuest.characters.includes(character.name))
-    console.log(filteredCharacters)
-    console.log(selectedQuest)
+    
 
     return (
-        <QuestCard onFavoriteClick={onFavoriteClick} quest={selectedQuest} />
+        <QuestCard onFavoriteClick={onFavoriteClick} quest={selectedQuest} characters={filteredCharacters} />
     );
 }
 
