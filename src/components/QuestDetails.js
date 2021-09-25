@@ -21,7 +21,9 @@ const QuestDetails = ({selectedQuest, onFavoriteClick}) => {
     console.log(filteredCreatures)
 
     return (
-        <QuestCard filteredCharacters={filteredCharacters} filteredCreatures={filteredCreatures} onFavoriteClick={onFavoriteClick} quest={selectedQuest} />
+        <div>
+            <QuestCard filteredCharacters={filteredCharacters} filteredCreatures={filteredCreatures} onFavoriteClick={onFavoriteClick} quest={selectedQuest} />
+        </div>
     );
 }
 

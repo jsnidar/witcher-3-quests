@@ -12,13 +12,24 @@ function App() {
   const [quests, setQuests] = useState([])
   const [selectedQuest, setSelectedQuest] = useState(null)
   const [sort, setSort] = useState('all')
+  const [characters, setCharacters] = useState([])
+  const [creatures, setCreatures] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3004/quests')
     .then(r => r.json())
     .then(quests => setQuests(quests))
+
+    fetch('http://witcher3api.com/api/characters')
+    .then(r => r.json())
+    .then(characters => setCharacters(characters))
+
+    fetch('http://witcher3api.com/api/creatures')
+    .then(r => r.json())
+    .then(creatures => setCreatures(creatures))
   }, [])
 
+  
   const onDropDownChange = (key) => {
     setSort(key)
   }
@@ -74,13 +85,12 @@ function App() {
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/favorites'>
-          <Favorites sort={sort} onFavoriteClick={onFavoriteClick} quests={displayedQuests.filter(quest => quest.isLiked)} />
+          <Favorites creatures={creatures} characters={characters} sort={sort} onFavoriteClick={onFavoriteClick} quests={displayedQuests.filter(quest => quest.isLiked)} />
         </Route>
         <Route exact path='/'>
-          <Home sort={sort} onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onDetailsClick={onDetailsClick} quests={displayedQuests}/>
+          <Home creatures={creatures} characters={characters} sort={sort} onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onDetailsClick={onDetailsClick} quests={displayedQuests}/>
         </Route>
       </Switch>
-      
     </div>
   );
 }

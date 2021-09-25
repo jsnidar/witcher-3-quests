@@ -2,9 +2,21 @@ import React from 'react';
 import QuestCard from './QuestCard';
 import { Container } from 'react-bootstrap';
 
-const Favorites = ({quests, sort, onFavoriteClick}) => {
+const Favorites = ({creatures, characters, quests, sort, onFavoriteClick}) => {
 
-    const favoriteQuests = quests.map(quest => <QuestCard onFavoriteClick={onFavoriteClick} key={quest.id} quest={quest} />)
+    const favoriteQuests = quests.map(quest => {
+        const filteredCharacters = characters.filter(character => quest.characters.includes(character.name))
+        const filteredCreatures = creatures.filter(creature => creature.quest.includes(quest.name))
+
+        return (
+            <QuestCard 
+                filteredCharacters={filteredCharacters} 
+                filteredCreatures={filteredCreatures} 
+                onFavoriteClick={onFavoriteClick} 
+                key={quest.id} quest={quest} 
+            />
+        )
+    })
 
 
     return (

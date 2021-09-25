@@ -4,7 +4,7 @@ import QuestList from './QuestList';
 import QuestDetails from './QuestDetails';
 import {Route, useRouteMatch} from 'react-router-dom'
 
-const Home = ({onFavoriteClick, onDetailsClick, selectedQuest, sort, onQuestClick, quests}) => {
+const Home = ({creatures, characters, onFavoriteClick, onDetailsClick, selectedQuest, sort, onQuestClick, quests}) => {
     const match = useRouteMatch()
 
     return (
@@ -22,7 +22,7 @@ const Home = ({onFavoriteClick, onDetailsClick, selectedQuest, sort, onQuestClic
                         <QuestList onDetailsClick={onDetailsClick} onFavoriteClick={onFavoriteClick} onQuestClick={onQuestClick} quests={quests} />
                     </Col>
                     <Col>
-                        {selectedQuest ? <QuestDetails selectedQuest={selectedQuest}/> : null } 
+                        {selectedQuest ? <QuestDetails creatures={creatures} characters={characters} selectedQuest={selectedQuest}/> : null } 
                     </Col>
                 </Row>
             </Route>

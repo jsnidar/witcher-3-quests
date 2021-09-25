@@ -9,7 +9,7 @@ const CharactersCarousel = ({characters}) => {
                     className="d-block w-100"
                     src={character.image}
                     alt={character.name}
-                    height='300px'
+                    height='500px'
                     width='auto'
                 />
                 <Carousel.Caption>

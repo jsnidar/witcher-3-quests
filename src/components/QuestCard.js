@@ -32,17 +32,12 @@ const QuestCard = ({filteredCharacters, filteredCreatures, quest, onFavoriteClic
                     <Card.Title>{quest.type}</Card.Title>
                     <Card.Text>
                         <p>Level: {quest.level}</p>
-                        <br></br>
                         <p>Region: {quest.region}</p>
-                        <br></br>
-                        <p>Location(s): {locations}</p> 
-                        <br></br>
+                        <p>Location(s): {locations}</p>
                         <h5>Characters:</h5>
                         <CharactersCarousel characters={filteredCharacters} />
-                        <br></br>
                         <h5>Creatures:</h5>
                         <CreaturesCarousel creatures={filteredCreatures} />
-                        <br></br>
                     </Card.Text>
                     {quest.isLiked ? <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
                 </Card.Body>
