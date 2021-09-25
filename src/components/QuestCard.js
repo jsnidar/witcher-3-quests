@@ -1,7 +1,9 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
+import CharactersCarousel from './CharactersCarousel';
+import CreaturesCarousel from './CreaturesCarousel';
 
-const QuestCard = ({quest, onFavoriteClick}) => {
+const QuestCard = ({filteredCharacters, filteredCreatures, quest, onFavoriteClick}) => {
 
     const handleFavoriteButtonClick = (e) => {
         if(quest.isLiked === false) {
@@ -20,33 +22,32 @@ const QuestCard = ({quest, onFavoriteClick}) => {
           return array.slice(0, -1).join(', ') + ' and ' + array.slice(-1)
         }
       }
-    
-      const characters = formatCharOrLocArrays(quest.characters)
+
       const locations = formatCharOrLocArrays(quest.location)
     return (
-        <>
+        <div style={{height: '75vh', overflow: 'scroll'}}>
             <Card>
                 <Card.Header>{quest.name}</Card.Header>
                 <Card.Body>
                     <Card.Title>{quest.type}</Card.Title>
                     <Card.Text>
-                    Level: {quest.level}
-                    <br></br>
-                    Region: {quest.region}
-                    <br></br>
-                    Location(s): {locations} 
-                    <br></br>
-                    Characters: {characters}
-                    {/* format this into thumbnails for each character with their information */}
-                    <br></br>
-                    Creatures:
-                    {/* format this into thumbnails for each creature with their information */}
-                    <br></br>
+                        <p>Level: {quest.level}</p>
+                        <br></br>
+                        <p>Region: {quest.region}</p>
+                        <br></br>
+                        <p>Location(s): {locations}</p> 
+                        <br></br>
+                        <h5>Characters:</h5>
+                        <CharactersCarousel characters={filteredCharacters} />
+                        <br></br>
+                        <h5>Creatures:</h5>
+                        <CreaturesCarousel creatures={filteredCreatures} />
+                        <br></br>
                     </Card.Text>
                     {quest.isLiked ? <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
                 </Card.Body>
             </Card>
-        </>
+        </div>
     )
 }
 

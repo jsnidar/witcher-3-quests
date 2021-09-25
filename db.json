@@ -44,7 +44,7 @@
         "White Orchard Inn",
         "Nilfgaardian Garrison"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 3,
@@ -101,7 +101,7 @@
       "location": [
         "Royal Palace in Vizima"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 6,
