@@ -1,68 +1,10 @@
 import React from 'react';
-import {Accordion, Button} from 'react-bootstrap';
+import {Accordion} from 'react-bootstrap';
+import QuestListItem from './QuestListItem';
 
-const QuestList = ({onDetailsClick, onFavoriteClick, quests}) => {
-    
-    const hoverBackgroundColor = (e) => {
-        e.target.style.background = '#4e636c'
-        e.target.style.color = 'white'
-    }
+const QuestList = ({ selectedQuest, onDetailsClick, onFavoriteClick, quests}) => {
 
-    const onMouseLeave = (e) => {
-        e.target.style.background = ''
-        e.target.style.color = ''
-    }
-
-    const renderQuests = quests.map(quest => {
-
-        const formatCharOrLocArrays = (array) => {
-            if(array.length === 1) {
-              return array
-            }else if(array.length === 2){
-              return `${array[0]} and ${array[1]}`
-            }else{
-              return array.slice(0, -1).join(', ') + ' and ' + array.slice(-1)
-            }
-          }
-        
-          const characters = formatCharOrLocArrays(quest.characters)
-          const locations = formatCharOrLocArrays(quest.location)
-
-        const handleFavoriteButtonClick = (e) => {
-            if(quest.isLiked === false) {
-                onFavoriteClick(quest.id, {isLiked: true})
-            }else{
-                onFavoriteClick(quest.id, {isLiked: false})
-            }
-        }
-
-        const handleDetailsClick = (e) => {
-            onDetailsClick(quest)
-        }
-
-        return(
-            <Accordion.Item
-                key={quest.id}
-                eventKey={quest.id} 
-                onMouseOver={hoverBackgroundColor} 
-                onMouseLeave={onMouseLeave} 
-            >
-                <Accordion.Header>{quest.name}</Accordion.Header>
-                <Accordion.Body>
-                    {quest.name} is a Level {quest.level} quest that takes place in {locations} in the {quest.region} region. 
-                    <br></br>
-                    <br></br>
-                    The characters in this quest include {characters}.
-                    <br></br>
-                    <br></br>
-                    {quest.isLiked ? 
-                        <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : 
-                        <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
-                    <Button onClick={handleDetailsClick} variant="secondary">See Full Details</Button>
-                </Accordion.Body>
-            </Accordion.Item> 
-        )
-    })
+    const renderQuests = quests.map(quest => <QuestListItem id={quest.id} key={quest.id} selectedQuest={selectedQuest} onDetailsClick={onDetailsClick} onFavoriteClick={onFavoriteClick} quest={quest} />)
                 
     return (
         <div style={{height: '75vh', overflow: 'scroll'}}>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import SortDropdown from './SortDropdown';
-import SearchForm from './SearchForm';
-
 
 const NavBar = ({onDropDownChange}) => {
     
@@ -19,7 +17,6 @@ const NavBar = ({onDropDownChange}) => {
                         <Nav.Link href="/create-quest">Create Quest</Nav.Link>
                         <SortDropdown onDropDownChange={onDropDownChange} />
                     </Nav>
-                    <SearchForm />
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

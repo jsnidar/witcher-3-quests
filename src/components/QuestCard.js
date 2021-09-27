@@ -1,9 +1,7 @@
 import React from 'react';
 import {Card, Button} from 'react-bootstrap';
-import CharactersCarousel from './CharactersCarousel';
-import CreaturesCarousel from './CreaturesCarousel';
 
-const QuestCard = ({filteredCharacters, filteredCreatures, quest, onFavoriteClick}) => {
+const QuestCard = ({quest, onFavoriteClick}) => {
 
     const handleFavoriteButtonClick = (e) => {
         if(quest.isLiked === false) {
@@ -25,19 +23,19 @@ const QuestCard = ({filteredCharacters, filteredCreatures, quest, onFavoriteClic
 
       const locations = formatCharOrLocArrays(quest.location)
     return (
-        <div style={{height: '75vh', overflow: 'scroll'}}>
+        <div>
             <Card>
                 <Card.Header>{quest.name}</Card.Header>
                 <Card.Body>
                     <Card.Title>{quest.type}</Card.Title>
                     <Card.Text>
-                        <p>Level: {quest.level}</p>
-                        <p>Region: {quest.region}</p>
-                        <p>Location(s): {locations}</p>
-                        <h5>Characters:</h5>
-                        <CharactersCarousel characters={filteredCharacters} />
-                        <h5>Creatures:</h5>
-                        <CreaturesCarousel creatures={filteredCreatures} />
+                        Level: {quest.level}
+                        <br></br>
+                        Region: {quest.region}
+                        <br></br>
+                        Location(s): {locations}
+                        <br></br>
+                        Characters: {formatCharOrLocArrays(quest.characters)}
                     </Card.Text>
                     {quest.isLiked ? <Button onClick={handleFavoriteButtonClick} variant="secondary">Unfavorite Quest</Button> : <Button onClick={handleFavoriteButtonClick} variant="secondary">Add to Favorites</Button>}
                 </Card.Body>

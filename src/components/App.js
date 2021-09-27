@@ -5,6 +5,7 @@ import '../App.css';
 import NavBar from './NavBar';
 import Favorites from './Favorites';
 import Home from './Home';
+import CreateQuest from './CreateQuest';
 
 
 function App() {
@@ -12,21 +13,12 @@ function App() {
   const [quests, setQuests] = useState([])
   const [selectedQuest, setSelectedQuest] = useState(null)
   const [sort, setSort] = useState('all')
-  const [characters, setCharacters] = useState([])
-  const [creatures, setCreatures] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3004/quests')
     .then(r => r.json())
     .then(quests => setQuests(quests))
 
-    fetch('http://witcher3api.com/api/characters')
-    .then(r => r.json())
-    .then(characters => setCharacters(characters))
-
-    fetch('http://witcher3api.com/api/creatures')
-    .then(r => r.json())
-    .then(creatures => setCreatures(creatures))
   }, [])
 
   
@@ -55,10 +47,6 @@ function App() {
     })
   }
 
-  const onDetailsClick = (quest) => {
-    setSelectedQuest(quest)
-}
-
   let displayedQuests
   if (sort === 'all') {
     displayedQuests = [...quests]
@@ -84,11 +72,23 @@ function App() {
     <div>
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
+        <Route path='/create-quest'>
+          <CreateQuest />
+        </Route>
         <Route path='/favorites'>
-          <Favorites creatures={creatures} characters={characters} sort={sort} onFavoriteClick={onFavoriteClick} quests={displayedQuests.filter(quest => quest.isLiked)} />
+          <Favorites  
+            sort={sort} 
+            onFavoriteClick={onFavoriteClick} 
+            quests={displayedQuests.filter(quest => quest.isLiked)} 
+          />
         </Route>
         <Route exact path='/'>
-          <Home creatures={creatures} characters={characters} sort={sort} onFavoriteClick={onFavoriteClick} selectedQuest={selectedQuest} onDetailsClick={onDetailsClick} quests={displayedQuests}/>
+          <Home 
+            sort={sort} 
+            onFavoriteClick={onFavoriteClick} 
+            selectedQuest={selectedQuest} 
+            quests={displayedQuests}
+          />
         </Route>
       </Switch>
     </div>
