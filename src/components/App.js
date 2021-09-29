@@ -20,6 +20,41 @@ function App() {
     .then(quests => setQuests(quests))
   }, [])
 
+  const onFavoriteClick = (id, favsKeyUpdateObj) => {
+    fetch(`http://localhost:3004/quests/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(favsKeyUpdateObj)
+    })
+    .then(r => r.json())
+    .then(updatedQuest => {
+      setSelectedQuest(updatedQuest)
+      setQuests(quests.map(quest => {
+        if(quest.id === updatedQuest.id) {
+          return updatedQuest
+        }else{
+          return quest
+        }
+      }))
+    })
+  }
+
+  const onCreateQuest = (newQuest) => {
+    console.log(newQuest)
+    setQuests([...quests, newQuest])
+    fetch(`http://localhost:3004/quests`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newQuest)
+    })
+    .then(r => r.json())
+    .then(quest => console.log(quest))
+  }
+
   const locationsAndRegionsObj = {};
 
   quests.forEach(quest => {
@@ -47,32 +82,9 @@ function App() {
 
   let uniqueCharacters = [...new Set(charactersArray)]
   charactersArray = uniqueCharacters
-  console.log(charactersArray)
 
-  
   const onDropDownChange = (key) => {
     setSort(key)
-  }
-
-  const onFavoriteClick = (id, favsKeyUpdateObj) => {
-    fetch(`http://localhost:3004/quests/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(favsKeyUpdateObj)
-    })
-    .then(r => r.json())
-    .then(updatedQuest => {
-      setSelectedQuest(updatedQuest)
-      setQuests(quests.map(quest => {
-        if(quest.id === updatedQuest.id) {
-          return updatedQuest
-        }else{
-          return quest
-        }
-      }))
-    })
   }
 
   let displayedQuests
@@ -105,6 +117,7 @@ function App() {
             quests={quests}
             regions={locationsAndRegionsObj}
             characters={charactersArray}
+            onCreateQuest={onCreateQuest}
           />
         </Route>
         <Route path='/favorites'>

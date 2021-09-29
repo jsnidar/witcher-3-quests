@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap'
 import CreateQuestDropdownItem from './CreateQuestDropdownItem';
 import RegionsDropdown from './RegionsDropdown';
-import Checkboxes from './Checkboxes';
 
-const CreateQuest = ({quests, regions, characters}) => {
+const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
     const [selectedRegion, setSelectedRegion] = useState(null)
     const [selectedLevel, setSelectedLevel] = useState(1)
     const [selectedType, setSelectedType] = useState('')
@@ -45,17 +44,29 @@ const CreateQuest = ({quests, regions, characters}) => {
         }else if (key === 'location'){
             setSelectedLocation(value)
             setFormData({...formData, [key]: [[value]]})
+        }else if(key=== 'level') {
+            setFormData({...formData, [key]: parseInt(value)})
         }else{
-            setFormData({...formData, [key]: value })
+            setFormData({...formData, [key]: value})
         }
      }
-     console.log(selectedLocation)
-     console.log(formData)
+
+     const handleSubmit = (event) => {
+        event.preventDefault()
+        onCreateQuest(formData)
+     }
+     
     return ( 
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="questName">
                 <Form.Label>Quest Name</Form.Label>
-                <Form.Control type="text" aria-label={'level'} value={questName} onChange={handleTextChange} placeholder="Enter quest name" />
+                <Form.Control 
+                    type="text" 
+                    aria-label={'level'} 
+                    value={questName} 
+                    onChange={handleTextChange} 
+                    placeholder="Enter quest name" 
+                    />
             </Form.Group>
             <Form.Group className='mb-3' controlId='questLevel'>
                 <Form.Label>Quest Level:</Form.Label>
