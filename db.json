@@ -20,7 +20,7 @@
       "location": [
         "Kaer Morhen"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 2,
@@ -7735,23 +7735,6 @@
         "Riverbank between Plegmund's Bridge and The Silver Salamander Inn"
       ],
       "isLiked": false
-    },
-    {
-      "name": "SDFS",
-      "level": 4,
-      "type": "Main quest (Blood and Wine)",
-      "region": "Vizima",
-      "location": [
-        [
-          "Royal Palace in Vizima"
-        ]
-      ],
-      "characters": [
-        [
-          "Yennefer of Vengerberg"
-        ]
-      ],
-      "id": 414
     }
   ]
 }

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { Form, Button } from 'react-bootstrap'
+import '../App.css';
+import { Form, Container, Button, Row, Col } from 'react-bootstrap'
 import CreateQuestDropdownItem from './CreateQuestDropdownItem';
 import RegionsDropdown from './RegionsDropdown';
 
@@ -57,58 +58,81 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
      }
      
     return ( 
-        <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="questName">
-                <Form.Label>Quest Name</Form.Label>
-                <Form.Control 
-                    type="text" 
-                    aria-label={'level'} 
-                    value={questName} 
-                    onChange={handleTextChange} 
-                    placeholder="Enter quest name" 
-                    />
-            </Form.Group>
-            <Form.Group className='mb-3' controlId='questLevel'>
-                <Form.Label>Quest Level:</Form.Label>
-                <Form.Select onChange={handleOptionSelect} aria-label={'level'}>
-                    <option>Make a selection</option>
-                    <CreateQuestDropdownItem quests={quests} attributeKey={'level'}/>
-                </Form.Select>
-            </Form.Group>
-            <Form.Group className='mb-3' controlId='questType'>
-                <Form.Label>Quest Type:</Form.Label>
-                <Form.Select onChange={handleOptionSelect} aria-label={'type'}>
-                    <option>Make a selection</option>
-                    <CreateQuestDropdownItem quests={quests} attributeKey={'type'}/>
-                </Form.Select>
-            </Form.Group>
-            <Form.Group  className='mb-3' controlId='questRegion'>
-                <Form.Label>Quest Region:</Form.Label>
-                <Form.Select onChange={handleRegionSelect}  aria-label={'region'}>
-                    <option>Make a selection</option>
-                    <RegionsDropdown regions={regionsList} attributeKey={'region'}/>
-                </Form.Select>
-            </Form.Group>
-            { locations.length !== 0 ? 
-                <Form.Group className='mb-3' controlId='questLocation'>
-                    <Form.Label>Quest Location:</Form.Label>
-                    <Form.Select value={selectedLocation} onChange={handleOptionSelect} aria-label={'location'}>
-                        <option>Make a selection</option>
-                        <RegionsDropdown regions={locations}/>
-                    </Form.Select>
-                </Form.Group> : null
-            }
-            <Form.Group className='mb-3' controlId='questCharacter'>
-                <Form.Label>Main Character:</Form.Label>
-                <Form.Select onChange={handleOptionSelect} aria-label={'characters'}>
-                    <option>Make a selection</option>
-                    <RegionsDropdown regions={characters} />
-                </Form.Select>
-            </Form.Group>
-            <Button variant="secondary" type="submit">
-                Submit
-            </Button>
-        </Form>
+        <Container className='containers'>
+            <Row>
+                <h2>Create New Quest</h2>
+            </Row>
+            <Form onSubmit={handleSubmit}>
+                <Row>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="questName">
+                            <Form.Label>Quest Name</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                aria-label={'level'} 
+                                value={questName} 
+                                onChange={handleTextChange} 
+                                placeholder="Enter quest name" 
+                                />
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className='mb-3' controlId='questLevel'>
+                            <Form.Label>Quest Level:</Form.Label>
+                            <Form.Select onChange={handleOptionSelect} aria-label={'level'}>
+                                <option>Make a selection</option>
+                                <CreateQuestDropdownItem quests={quests} attributeKey={'level'}/>
+                            </Form.Select>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Form.Group className='mb-3' controlId='questCharacter'>
+                            <Form.Label>Main Character:</Form.Label>
+                            <Form.Select onChange={handleOptionSelect} aria-label={'characters'}>
+                                <option>Make a selection</option>
+                                <RegionsDropdown regions={characters} />
+                             </Form.Select>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className='mb-3' controlId='questType'>
+                            <Form.Label>Quest Type:</Form.Label>
+                            <Form.Select onChange={handleOptionSelect} aria-label={'type'}>
+                                <option>Make a selection</option>
+                                <CreateQuestDropdownItem quests={quests} attributeKey={'type'}/>
+                            </Form.Select>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Form.Group  className='mb-3' controlId='questRegion'>
+                            <Form.Label>Quest Region:</Form.Label>
+                            <Form.Select onChange={handleRegionSelect}  aria-label={'region'}>
+                                <option>Make a selection</option>
+                                <RegionsDropdown regions={regionsList} attributeKey={'region'}/>
+                            </Form.Select>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        { locations.length !== 0 ? 
+                            <Form.Group className='mb-3' controlId='questLocation'>
+                                <Form.Label>Quest Location:</Form.Label>
+                                <Form.Select value={selectedLocation} onChange={handleOptionSelect} aria-label={'location'}>
+                                    <option>Make a selection</option>
+                                    <RegionsDropdown regions={locations}/>
+                                </Form.Select>
+                            </Form.Group> : null
+                        }
+                    </Col>
+                </Row>
+                <Button variant="secondary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+        </Container>
     )
 }
 
