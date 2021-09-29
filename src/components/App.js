@@ -18,8 +18,36 @@ function App() {
     fetch('http://localhost:3004/quests')
     .then(r => r.json())
     .then(quests => setQuests(quests))
-
   }, [])
+
+  const locationsAndRegionsObj = {};
+
+  quests.forEach(quest => {
+    let regions = Object.values(quest.region)
+    let locations = Object.values(quest.location)
+    //if there is one region and one location
+    if((regions.length === 1) && (locations.length === 1)) {
+      if(!Object.keys(locationsAndRegionsObj).includes(regions[0])) {
+        locationsAndRegionsObj[regions] = [...quest.location]
+      }else{
+        locationsAndRegionsObj[regions] = [...locationsAndRegionsObj[regions], ...quest.location]
+      }
+  }})
+
+  for(let region in locationsAndRegionsObj) {
+    let unique = [...new Set(locationsAndRegionsObj[region])]
+    locationsAndRegionsObj[region] = unique
+  }
+
+  let charactersArray = []
+  quests.forEach(quest => {
+    let characters = Object.values(quest.characters)
+    return charactersArray = [...charactersArray, ...characters]
+  })
+
+  let uniqueCharacters = [...new Set(charactersArray)]
+  charactersArray = uniqueCharacters
+  console.log(charactersArray)
 
   
   const onDropDownChange = (key) => {
@@ -73,7 +101,11 @@ function App() {
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/create-quest'>
-          <CreateQuest />
+          <CreateQuest
+            quests={quests}
+            regions={locationsAndRegionsObj}
+            characters={charactersArray}
+          />
         </Route>
         <Route path='/favorites'>
           <Favorites  
