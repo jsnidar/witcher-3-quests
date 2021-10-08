@@ -7735,6 +7735,23 @@
         "Riverbank between Plegmund's Bridge and The Silver Salamander Inn"
       ],
       "isLiked": false
+    },
+    {
+      "name": "test",
+      "level": 4,
+      "type": "Main quest",
+      "region": "White Orchard",
+      "location": [
+        [
+          "Abandoned Village"
+        ]
+      ],
+      "characters": [
+        [
+          "Yennefer of Vengerberg"
+        ]
+      ],
+      "id": 414
     }
   ]
 }

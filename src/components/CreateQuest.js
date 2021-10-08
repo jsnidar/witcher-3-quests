@@ -1,23 +1,16 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom';
 import '../App.css';
 import { Form, Container, Button, Row, Col } from 'react-bootstrap'
 import CreateQuestDropdownItem from './CreateQuestDropdownItem';
 import RegionsDropdown from './RegionsDropdown';
-import styled from 'styled-components';
-
-const styledContainer = styled(Container)`
-    background-color: #eaeaea;
-    border-style: groove;
-    color: #4e636c;
-    padding: 2%
-`
 
 const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
-    const [selectedRegion, setSelectedRegion] = useState(null)
-    const [selectedLevel, setSelectedLevel] = useState(1)
-    const [selectedType, setSelectedType] = useState('')
+    const [selectedRegion, ] = useState(null)
+    const [selectedLevel, ] = useState(1)
+    const [selectedType, ] = useState('')
     const [selectedLocation, setSelectedLocation] = useState([])
-    const [selectedCharacters, setSelectedCharacters] = useState([])
+    const [selectedCharacters, ] = useState([])
     const [questName, setQuestName] = useState('')
     const [locations, setLocations] = useState([])
  
@@ -29,6 +22,8 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
         location: selectedLocation,
         characters: selectedCharacters
     })
+
+    const history = useHistory();
 
     const regionsList = Object.keys(regions).filter(region => !region.includes(','))
     
@@ -63,6 +58,7 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
      const handleSubmit = (event) => {
         event.preventDefault()
         onCreateQuest(formData)
+        history.push('/')
      }
      
     return ( 
