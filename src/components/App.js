@@ -13,6 +13,7 @@ function App() {
   const [quests, setQuests] = useState([])
   const [selectedQuest, setSelectedQuest] = useState(null)
   const [sort, setSort] = useState('all')
+  const [searchText, setSearchText] = useState('')
 
   useEffect(() => {
     fetch('http://localhost:3004/quests')
@@ -107,6 +108,7 @@ function App() {
       return 0;
     });
   }
+ 
   
   return (
     <div>
@@ -132,7 +134,9 @@ function App() {
             sort={sort} 
             onFavoriteClick={onFavoriteClick} 
             selectedQuest={selectedQuest} 
-            quests={displayedQuests}
+            quests={displayedQuests.filter(quest => quest.name.toUpperCase().includes(searchText.toUpperCase()))}
+            searchText={searchText}
+            setSearchText={setSearchText}
           />
         </Route>
       </Switch>
