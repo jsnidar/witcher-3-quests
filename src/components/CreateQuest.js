@@ -3,6 +3,14 @@ import '../App.css';
 import { Form, Container, Button, Row, Col } from 'react-bootstrap'
 import CreateQuestDropdownItem from './CreateQuestDropdownItem';
 import RegionsDropdown from './RegionsDropdown';
+import styled from 'styled-components';
+
+const styledContainer = styled(Container)`
+    background-color: #eaeaea;
+    border-style: groove;
+    color: #4e636c;
+    padding: 2%
+`
 
 const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
     const [selectedRegion, setSelectedRegion] = useState(null)

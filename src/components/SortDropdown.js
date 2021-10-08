@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavDropdown } from 'react-bootstrap';
 
+
 const SortDropdown = ({onDropDownChange}) => {
 
     const handleDropdownChange = (eventKey) => {
@@ -8,7 +9,7 @@ const SortDropdown = ({onDropDownChange}) => {
     } 
 
     return (
-        <NavDropdown onSelect={handleDropdownChange} title="Sort Quests By: " id="basic-nav-dropdown">
+        <NavDropdown style={{color: 'white'}} onSelect={handleDropdownChange} title="Sort Quests By: " id="basic-nav-dropdown">
             <NavDropdown.Item eventKey='all'>Remove Sort</NavDropdown.Item>
             <NavDropdown.Item eventKey='level'>Level</NavDropdown.Item>
             <NavDropdown.Item eventKey='name'>Name</NavDropdown.Item>

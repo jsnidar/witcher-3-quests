@@ -7,7 +7,7 @@ const NavBar = ({onDropDownChange}) => {
     
     return (
         <div>
-            <Navbar className='navigation' bg='dark' expand="lg">
+            <Navbar className='navigation' bg='light' expand="lg">
                 <Container >
                     <Navbar.Brand href="/">Witcher 3 Quests</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
