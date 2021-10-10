@@ -48,7 +48,7 @@
         "White Orchard Inn",
         "Nilfgaardian Garrison"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 3,
@@ -374,7 +374,7 @@
       "location": [
         "Crookback Bog"
       ],
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": 19,
@@ -7752,6 +7752,23 @@
         ]
       ],
       "id": 414
+    },
+    {
+      "name": "New Quest",
+      "level": 5,
+      "type": "Contracts",
+      "region": "Novigrad",
+      "location": [
+        [
+          "Kingfisher Inn"
+        ]
+      ],
+      "characters": [
+        [
+          "Geralt of Rivia"
+        ]
+      ],
+      "id": 415
     }
   ]
 }
