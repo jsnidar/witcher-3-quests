@@ -31,7 +31,7 @@ const QuestCard = ({quest, onFavoriteClick}) => {
                     <Card.Text>
                         Level: {quest.level}
                         <br></br>
-                        Region: {quest.region}
+                        Region: {formatCharOrLocArrays(quest.region)}
                         <br></br>
                         Location(s): {locations}
                         <br></br>

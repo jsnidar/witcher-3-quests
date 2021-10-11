@@ -43,8 +43,6 @@ function App() {
   }
 
   const onCreateQuest = (newQuest) => {
-    console.log(newQuest)
-    setQuests([...quests, newQuest])
     fetch(`http://localhost:3004/quests`, {
       method: 'POST',
       headers: {
@@ -53,7 +51,7 @@ function App() {
       body: JSON.stringify(newQuest)
     })
     .then(r => r.json())
-    .then(quest => console.log(quest))
+    .then(quest => setQuests([...quests, quest]))
   }
 
   const locationsAndRegionsObj = {};
