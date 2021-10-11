@@ -6,7 +6,7 @@ The Witcher 3 Quests application is written in Javascript, React, HTML5, CSS3, B
 
 ## Video Demonstration
 
-Click on this <a href='https://watch.screencastify.com/v/x2pJ4IzTIrsvLnPrerVj'>link </a> to view a video demonstration of the application.
+Click on this <a href='https://watch.screencastify.com/v/O9szYIGD913lFtLUumPD'>link </a> to view a video demonstration of the application.
 
 ## Usage
 

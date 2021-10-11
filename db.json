@@ -20,7 +20,7 @@
       "location": [
         "Kaer Morhen"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 2,
@@ -88,7 +88,7 @@
       "location": [
         "White Orchard Inn"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 5,
@@ -111,7 +111,7 @@
       "location": [
         "Royal Palace in Vizima"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 6,
@@ -156,7 +156,7 @@
       "location": [
         "Heatherton"
       ],
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": 8,
@@ -7786,6 +7786,76 @@
         ]
       ],
       "id": 416
+    },
+    {
+      "name": "The greatest adventure ever!",
+      "level": 6,
+      "type": "Main quest",
+      "region": "Velen",
+      "location": [
+        [
+          "Blackbough"
+        ]
+      ],
+      "characters": [
+        [
+          "Ciri"
+        ]
+      ],
+      "id": 417
+    },
+    {
+      "name": "Test 2",
+      "level": 5,
+      "type": "Main quest",
+      "region": "Vizima",
+      "location": [
+        [
+          "Royal Palace in Vizima"
+        ]
+      ],
+      "characters": [
+        [
+          "Ciri"
+        ]
+      ],
+      "id": 418
+    },
+    {
+      "name": "The best quest ever!",
+      "level": 14,
+      "type": "Main quest",
+      "region": "Brunwich",
+      "location": [
+        [
+          "Old Chapel north of Upper Mill"
+        ]
+      ],
+      "characters": [
+        [
+          "Geralt of Rivia"
+        ]
+      ],
+      "id": 419,
+      "isLiked": false
+    },
+    {
+      "name": "Great Adventure",
+      "level": 29,
+      "type": "Treasure hunts",
+      "region": "White Orchard",
+      "location": [
+        [
+          "Battlefield"
+        ]
+      ],
+      "characters": [
+        [
+          "Geralt of Rivia"
+        ]
+      ],
+      "id": 420,
+      "isLiked": true
     }
   ]
 }

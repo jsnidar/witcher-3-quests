@@ -7,7 +7,6 @@ import RegionsDropdown from './RegionsDropdown';
 
 const CreateQuest = ({quests, regions, onCreateQuest}) => {
     
-    const [selectedLocation, setSelectedLocation] = useState([])
     const [locations, setLocations] = useState([])
  
     const [formData, setFormData] = useState({
@@ -15,7 +14,7 @@ const CreateQuest = ({quests, regions, onCreateQuest}) => {
         level: 1, 
         type: '',
         region: null,
-        location: selectedLocation,
+        location: '',
         characters: null
     })
 
@@ -28,7 +27,6 @@ const CreateQuest = ({quests, regions, onCreateQuest}) => {
         const value = event.target.value
         setFormData({...formData, [key]: value });
         setLocations([...regions[value]])
-        setSelectedLocation(value)
      }
 
      const handleTextChange = (e) => {
@@ -119,7 +117,7 @@ const CreateQuest = ({quests, regions, onCreateQuest}) => {
                         { locations.length !== 0 ? 
                             <Form.Group className='mb-3' controlId='questLocation'>
                                 <Form.Label>Quest Location:</Form.Label>
-                                <Form.Select value={selectedLocation} onChange={handleOptionSelect} aria-label={'location'}>
+                                <Form.Select value={formData.location} onChange={handleOptionSelect} aria-label={'location'}>
                                     <option>Make a selection</option>
                                     <RegionsDropdown regions={locations}/>
                                 </Form.Select>
