@@ -43,6 +43,7 @@ function App() {
   }
 
   const onCreateQuest = (newQuest) => {
+    console.log(newQuest)
     fetch(`http://localhost:3004/quests`, {
       method: 'POST',
       headers: {
@@ -72,15 +73,6 @@ function App() {
     let unique = [...new Set(locationsAndRegionsObj[region])]
     locationsAndRegionsObj[region] = unique
   }
-
-  let charactersArray = []
-  quests.forEach(quest => {
-    let characters = Object.values(quest.characters)
-    return charactersArray = [...charactersArray, ...characters]
-  })
-
-  let uniqueCharacters = [...new Set(charactersArray)]
-  charactersArray = uniqueCharacters
 
   const onDropDownChange = (key) => {
     setSort(key)
@@ -116,7 +108,6 @@ function App() {
           <CreateQuest
             quests={quests}
             regions={locationsAndRegionsObj}
-            characters={charactersArray}
             onCreateQuest={onCreateQuest}
           />
         </Route>

@@ -7769,6 +7769,23 @@
         ]
       ],
       "id": 415
+    },
+    {
+      "name": "Testing",
+      "level": 3,
+      "type": "Main quest",
+      "region": "White Orchard",
+      "location": [
+        [
+          "In a hut near the Mill"
+        ]
+      ],
+      "characters": [
+        [
+          "Geralt of Rivia"
+        ]
+      ],
+      "id": 416
     }
   ]
 }

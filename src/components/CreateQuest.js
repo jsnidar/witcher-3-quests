@@ -5,22 +5,18 @@ import { Form, Container, Button, Row, Col } from 'react-bootstrap'
 import CreateQuestDropdownItem from './CreateQuestDropdownItem';
 import RegionsDropdown from './RegionsDropdown';
 
-const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
-    const [selectedRegion, ] = useState(null)
-    const [selectedLevel, ] = useState(1)
-    const [selectedType, ] = useState('')
+const CreateQuest = ({quests, regions, onCreateQuest}) => {
+    
     const [selectedLocation, setSelectedLocation] = useState([])
-    const [selectedCharacters, ] = useState([])
-    const [questName, setQuestName] = useState('')
     const [locations, setLocations] = useState([])
  
     const [formData, setFormData] = useState({
-        name: questName,
-        level: selectedLevel, 
-        type: selectedType,
-        region: selectedRegion,
+        name: '',
+        level: 1, 
+        type: '',
+        region: null,
         location: selectedLocation,
-        characters: selectedCharacters
+        characters: null
     })
 
     const history = useHistory();
@@ -36,17 +32,15 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
      }
 
      const handleTextChange = (e) => {
-            setQuestName(e.target.value)
             setFormData({...formData, name: e.target.value})
      }
+
      const handleOptionSelect = (event) => {
-        
         const key = event.target.ariaLabel
         const value = event.target.value
         if(key === 'characters') {
             setFormData({...formData, [key]: [[value]]})
         }else if (key === 'location'){
-            setSelectedLocation(value)
             setFormData({...formData, [key]: [[value]]})
         }else if(key=== 'level') {
             setFormData({...formData, [key]: parseInt(value)})
@@ -60,7 +54,7 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
         onCreateQuest(formData)
         history.push('/')
      }
-     
+     console.log(formData)
     return ( 
         <Container className='containers'>
             <Row>
@@ -73,8 +67,8 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
                             <Form.Label>Quest Name</Form.Label>
                             <Form.Control 
                                 type="text" 
-                                aria-label={'level'} 
-                                value={questName} 
+                                aria-label={'name'} 
+                                value={formData.name} 
                                 onChange={handleTextChange} 
                                 placeholder="Enter quest name" 
                                 />
@@ -96,7 +90,8 @@ const CreateQuest = ({quests, regions, characters, onCreateQuest}) => {
                             <Form.Label>Main Character:</Form.Label>
                             <Form.Select onChange={handleOptionSelect} aria-label={'characters'}>
                                 <option>Make a selection</option>
-                                <RegionsDropdown regions={characters} />
+                                <option>Geralt of Rivia</option>
+                                <option>Ciri</option>
                              </Form.Select>
                         </Form.Group>
                     </Col>
