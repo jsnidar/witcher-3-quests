@@ -100,7 +100,7 @@ function App() {
  
   
   return (
-    <div style={{ backgroundImage: "url(/587508.png)", backgroundRepeat: 'no-repeat', height: '100vh'}}>
+    <div style={{ backgroundImage: "url(/587508.png)", backgroundRepeat: 'no-repeat', height: '100vh', backgroundSize: 'cover'}}>
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/create-quest'>

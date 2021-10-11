@@ -42,7 +42,7 @@ const QuestListItem = ({quest, onFavoriteClick}) => {
             onMouseLeave={onMouseLeave} 
         >
             <Accordion.Header>{quest.name}</Accordion.Header>
-            <Accordion.Body>
+            <Accordion.Body style={{color: 'black'}} >
                 {quest.name} is a Level {quest.level} quest that takes place in {locations} in the {quest.region} region. 
                 <br></br>
                 <br></br>

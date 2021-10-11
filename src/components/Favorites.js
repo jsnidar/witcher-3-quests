@@ -20,7 +20,7 @@ const Favorites = ({quests, sort, onFavoriteClick}) => {
             <Row>
                 <h1>Favorite Quests</h1>
             </Row>
-            <Row  style={{height: '75vh', overflow: 'scroll'}}>
+            <Row  style={{height: '80vh', overflow: 'scroll'}}>
                 {sort !== 'all' ? <h5>Quests are currently sorted by {sort}.</h5>: null } 
                 {favoriteQuests}
             </Row>
