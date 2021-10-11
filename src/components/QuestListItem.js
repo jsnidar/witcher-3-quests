@@ -10,7 +10,7 @@ const QuestListItem = ({quest, onFavoriteClick}) => {
 
     const onMouseLeave = (e) => {
         e.target.style.background = ''
-        e.target.style.color = ''
+        e.target.style.color = 'black'
     }
 
     const formatCharOrLocArrays = (array) => {
@@ -25,6 +25,7 @@ const QuestListItem = ({quest, onFavoriteClick}) => {
     
     const characters = formatCharOrLocArrays(quest.characters)
     const locations = formatCharOrLocArrays(quest.location)
+    const formattedQuestType = quest.type.split(' ').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')
 
     const handleFavoriteButtonClick = (e) => {
         if(quest.isLiked === false) {
@@ -41,9 +42,9 @@ const QuestListItem = ({quest, onFavoriteClick}) => {
             onMouseOver={onMouseOver} 
             onMouseLeave={onMouseLeave} 
         >
-            <Accordion.Header>{quest.name}</Accordion.Header>
+            <Accordion.Header>{quest.type !== 'Contracts' ? `${formattedQuestType}:` : ''} {quest.name}</Accordion.Header>
             <Accordion.Body style={{color: 'black'}} >
-                {quest.name} is a Level {quest.level} quest that takes place in {locations} in the {quest.region} region. 
+            {quest.name} is a Level {quest.level} {formattedQuestType} that takes place in {locations} in the {quest.region} region. 
                 <br></br>
                 <br></br>
                 The characters in this quest include {characters}.
