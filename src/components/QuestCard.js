@@ -24,7 +24,7 @@ const QuestCard = ({quest, onFavoriteClick}) => {
       const locations = formatCharOrLocArrays(quest.location)
     return (
         <div>
-            <Card>
+            <Card className='cards'>
                 <Card.Header>{quest.name}</Card.Header>
                 <Card.Body>
                     <Card.Title>{quest.type}</Card.Title>

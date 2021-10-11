@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom'
-
+import { Switch, Route } from 'react-router-dom';
 import '../App.css';
 import NavBar from './NavBar';
 import Favorites from './Favorites';
@@ -101,7 +100,7 @@ function App() {
  
   
   return (
-    <div>
+    <div style={{ backgroundImage: "url(/587508.png)", backgroundRepeat: 'no-repeat', height: '100vh'}}>
       <NavBar onDropDownChange={onDropDownChange} />
       <Switch>
         <Route path='/create-quest'>

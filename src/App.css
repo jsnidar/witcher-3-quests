@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh
 }
 
 .App-logo {
@@ -24,9 +25,8 @@
 }
 
 .containers {
-  background-color: #eaeaea;
-  border-style: groove;
-  color: #4e636c;
+  background-color: transparent;
+  color: whitesmoke;
   padding: 2%
 }
 

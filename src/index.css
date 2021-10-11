@@ -6,12 +6,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #EEA7A7;
-  
+  height: 100vh;
+}
+
+h1 {
+  color: whitesmoke
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.cards {
+  color: black;
 }
 
